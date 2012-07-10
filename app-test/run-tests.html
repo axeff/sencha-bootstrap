@@ -10,15 +10,21 @@
   <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine.js"></script>
   <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine-html.js"></script>
 
+  <script src="../sdk/sencha-touch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+  
+
   <!-- include spec files here... -->
 
-  <!--<script src="spec/BasicSpec.js" type="text/javascript" charset="utf-8"></script>-->
+  <script src="spec/BasicSpec.js" type="text/javascript" charset="utf-8"></script>
   <script src="spec/HeaderSpec.js" type="text/javascript" charset="utf-8"></script>
 
 
   <script type="text/javascript">
+
 	//make global to be accessible in run-jasmine.js
 	var jasmineEnv = jasmine.getEnv();
+	
     (function() {
       jasmineEnv.updateInterval = 1000;
 

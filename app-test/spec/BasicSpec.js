@@ -1,4 +1,4 @@
-describe("Basic Assumptions", function() {
+describe("Basic App Assumptions", function() {
 
     it("has ExtJS loaded", function() {
         expect(Ext).toBeDefined();
