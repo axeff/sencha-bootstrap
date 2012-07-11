@@ -1,3 +1,8 @@
+// Disable Cache because PhoneGap + Caching Mechanism of Sencha 2 won't work on Android > 3.x
+// At the proxy that request the local file set the properties
+// noCache: false, enablePagingParams: false,
+Ext.Loader.setConfig({ disableCaching: true });
+
 Ext.application({
     name: 'myApp',
 
@@ -26,6 +31,8 @@ Ext.application({
     },
 
     launch: function() {
+
+	
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
