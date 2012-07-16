@@ -6,12 +6,11 @@ Ext.define('myApp.model.User', {
     config: {
         fields: [
             {name: 'email',  type: 'string'},
-            {name: 'password',   type: 'string'},
-            {name: 'loginKey', type: 'string'}
+            {name: 'loginKey', type: 'string'},
         ],
 		validations: [
             {type: 'presence',  field: 'email'},
-			{type: 'presence',  field: 'password'},
+			{type: 'presence',  field: 'loginKey'},
         ],
 		proxy: {
             type: 'localstorage',
@@ -19,4 +18,5 @@ Ext.define('myApp.model.User', {
         },
 		identifier: 'uuid'
     },
+
 });

@@ -91,11 +91,11 @@ if(page){
 							console.log('');
 						}
 
-						return jasmineEnv.currentRunner().results().passed();
-
 						var runner = document.body.querySelector('.runner');
 						console.log('--------------------------------------------------------');
                         console.log('Finished: '+runner.querySelector('.description').innerText);
+
+						return jasmineEnv.currentRunner().results().passed();
                     });
                     console.log('');
                     phantom.exit(passedReturn ? 0 : 1);

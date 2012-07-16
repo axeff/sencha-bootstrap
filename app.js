@@ -3,6 +3,35 @@
 // noCache: false, enablePagingParams: false,
 Ext.Loader.setConfig({ disableCaching: false });
 
+
+
+//Defining a global config-object
+//properties are available as getters()
+//example: 
+//
+// config: {
+// 	timeout: 5000
+// }
+// is availabe as config.getTimeout()
+
+Ext.define('Config', {
+    config: {
+        serverBaseUrl: 'http://localhost/msb-dummy/',
+		timeout: 5000
+    },
+
+    constructor: function(config) {
+        this.initConfig(config);
+
+        return this;
+    }
+});
+
+var config = new Config();
+
+
+
+//Bootstrap for Application
 Ext.application({
     name: 'myApp',
 
@@ -10,13 +39,33 @@ Ext.application({
    
     ],
 
-    views: ['Main'],
+    views: [
+		'Login',
+		'Main',
+		'Events',
+		'Cart'
+	],
 	models: [
 		'User'
 	],
-	stores: [
-		'UsersStore'
+	controllers: [
+		'LoginController',
 	],
+	stores: [
+		'UsersStore',
+		'LoginStore'
+	],
+	// Give the Ext.Viewport global instance a custom layout and animation
+    viewport: {
+        layout: {
+            type: 'card',
+            animation: {
+                type: 'slide',
+                direction: 'left',
+                duration: 300
+            }
+        }
+    },
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -39,11 +88,24 @@ Ext.application({
     launch: function() {
 
 	
-        // Destroy the #appLoadingIndicator element
-        Ext.fly('appLoadingIndicator').destroy();
+        
+		try{
+			// Destroy the #appLoadingIndicator element
+		   Ext.fly('appLoadingIndicator').destroy();
+		}catch(e){
+			
+		}
 
-        // Initialize the main view
-        Ext.Viewport.add(Ext.create('myApp.view.Main'));
+		//check if user is loggedin already
+		var users = Ext.StoreManager.lookup('usersStore');
+		//if (users.isLogged())
+			// Initialize the Events view
+			Ext.create('myApp.view.Main');
+		//else
+			// Initialize the Login view
+		//	Ext.create('myApp.view.Login');
+        
+        
 
     },
 

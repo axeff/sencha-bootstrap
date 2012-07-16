@@ -12,7 +12,7 @@ describe("Basic App Assumptions", function() {
 
 
 	
-	it('should have a Main-View', function() {
-		expect(Ext.create('myApp.view.Main')).toBeDefined();
+	it('should have a Login-View', function() {
+		expect(Ext.create('myApp.view.Login')).toBeDefined();
 	});
 });
