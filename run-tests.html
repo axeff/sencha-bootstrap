@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="app-test/lib/jasmine-1.2.0/jasmine.css">
   <script type="text/javascript" src="app-test/lib/jasmine-1.2.0/jasmine.js"></script>
   <script type="text/javascript" src="app-test/lib/jasmine-1.2.0/jasmine-html.js"></script>
+  <script type="text/javascript" src="app-test/lib/jasmine.junit_reporter.js"></script>
 
   
 
@@ -31,8 +32,10 @@
       jasmineEnv.updateInterval = 1000;
 
       var trivialReporter = new jasmine.TrivialReporter();
+      var junitReporter = new jasmine.JUnitXmlReporter();
 
       jasmineEnv.addReporter(trivialReporter);
+      jasmineEnv.addReporter(junitReporter);
 
       jasmineEnv.specFilter = function(spec) {
         return trivialReporter.specFilter(spec);
