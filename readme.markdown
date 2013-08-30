@@ -12,7 +12,12 @@ simply:
 install and make sure *phantomjs* is installed and then eihter run manually
 
 <code>
-	phantomjs app-test/run-jasmine.js http://localhost/pathtomyapp/run-tests.html
+	phantomjs app-test/run-jasmine.js run-tests.html
 </code>
-
 or/and copy *.git/hooks/pre-commit* into your project and let the hook run the tests
+
+
+And to to run with JUnitXmlReporter (e.g for Jenkins integration):
+<code>
+    app-test/lib/phantomjs.runner.sh run-tests.html
+</code>

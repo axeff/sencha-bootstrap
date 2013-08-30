@@ -28,7 +28,7 @@ while (( "$#" )); do
 done
 
 # cleanup previous test runs
-cd $SCRIPTDIR
+cd $SCRIPTDIR/../
 rm -f *.xml
 
 # make sure phantomjs submodule is initialized
@@ -36,5 +36,6 @@ cd ..
 git submodule update --init
 
 # fire up the phantomjs environment and run the test
-cd $SCRIPTDIR
+cd $SCRIPTDIR/../
+
 /usr/bin/env phantomjs $SCRIPTDIR/phantomjs-testrunner.js $TESTFILE
